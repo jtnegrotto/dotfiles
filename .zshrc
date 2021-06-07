@@ -26,6 +26,8 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
+export PATH="$HOME/.ebcli-virtual-env/executables:$PATH"
+
 # makes it a little easier to get some programs to "just work"
 export TERM=xterm-256color
 
