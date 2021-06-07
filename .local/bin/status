@@ -1,0 +1,12 @@
+#!/bin/bash
+
+while true; do
+  battery="Battery: $(cat /sys/class/power_supply/BAT0/capacity)%"
+  rootspace="/:$(df -h --output=pcent /root | tail -1 | cut -c2-5)"
+  homespace="/home:$(df -h --output=pcent /home | tail -1 | cut -c2-5)"
+  cputemp="CPU Temp: $(cut -c1-2 /sys/class/thermal/thermal_zone0/temp)C"
+  mail="Emails: $(ls ~/mail/crawfish/INBOX/new | wc -l)"
+  time="$(date +'%Y-%m-%d, %I:%M %p')"
+  xsetroot -name "$battery | $rootspace $homespace | $cputemp | $mail | $time"
+  sleep 5
+done

@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# set wallpaper
+feh --bg-scale ~/pix/wallpapers/wallpaper
+# make capslock behave as control (when held), and right alt behave as compose
+setxkbmap -option ctrl:nocaps -option compose:ralt # map
+# make capslock behave as escape (when tapped)
+xcape -e 'Control_L=Escape'
+# notifications
+dunst &
+# flux
+fluxgui &
+# network manager applet
+nm-applet &
+# screen locker
+xss-lock --transfer-sleep-lock -- ~/bin/betterlockscreen -l &
+# keep awake if needed
+caffeine-indicator &
+# dwm status script
+~/.local/bin/status &
+
+# start wm
+exec dwm
+
