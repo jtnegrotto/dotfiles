@@ -13,7 +13,7 @@ fluxgui &
 # network manager applet
 nm-applet &
 # screen locker
-xss-lock --transfer-sleep-lock -- ~/bin/betterlockscreen -l &
+xss-lock --transfer-sleep-lock -- ~/.local/bin/betterlockscreen -l &
 # keep awake if needed
 caffeine-indicator &
 # dwm status script
