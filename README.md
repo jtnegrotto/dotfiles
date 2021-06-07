@@ -1,4 +1,4 @@
-# Configuration
+# dotfiles
 
 I'm making an effort to streamline my development environment and make it a
 little more portable (in the sense that I can replicate it on a new laptop
