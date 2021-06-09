@@ -26,6 +26,10 @@ super + Print
 super + Escape
 	pkill -USR1 -x sxhkd
 
+# remap keys (I have to do this after plugging/unplugging keyboards)
+super + Insert
+	kbdremap
+
 #
 # dwm hotkeys (using dwm-ipc)
 #
