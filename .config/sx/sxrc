@@ -18,6 +18,10 @@ xss-lock --transfer-sleep-lock -- ~/.local/bin/betterlockscreen -l &
 caffeine-indicator &
 # dwm status script
 ~/.local/bin/status &
+# hotkeys (separate these from dwm as much as possible)
+sxhkd &
+# compositor
+picom &
 
 # start wm
 exec dwm
