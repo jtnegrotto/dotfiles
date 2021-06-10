@@ -1,0 +1,6 @@
+#!/bin/sh
+# dump terminal contents using externalpipe
+dumpdir="$XDG_DATA_HOME/textdumps"
+timestamp=$(date +'%Y-%m-%d-%H:%M:%S')
+mkdir -p "$dumpdir"
+cat > "$dumpdir/$timestamp.txt"
