@@ -52,6 +52,8 @@ fi
 
 alias ls="ls --color -l"
 
+alias grep="grep --color"
+
 alias v=nvim
 
 alias zathura='setsid -f zathura'

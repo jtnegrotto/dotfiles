@@ -2,6 +2,8 @@
 
 # set wallpaper
 hsetroot -root -cover ~/pix/wallpapers/wallpaper
+# load .Xresources
+xrdb ~/.config/xresources/Xresources
 # make capslock behave as control (when held), and right alt behave as compose
 kbdremap
 # notifications

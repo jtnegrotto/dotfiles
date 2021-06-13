@@ -14,6 +14,10 @@ super + d
 super + p
 	passmenu
 
+# editor
+super + e
+	st -e nvim
+
 # full screenshot
 Print
 	maim ~/pix/screenshots/$(date +'%Y-%m-%d-%I:%M:%S').png
@@ -22,9 +26,9 @@ Print
 super + Print
 	maim -u -s ~/pix/screenshots/$(date +'%Y-%m-%d-%I:%M:%S').png
 
-# make sxhkd reload its configuration files:
+# reload configurations
 super + Escape
-	pkill -USR1 -x sxhkd
+	pkill -USR1 -x sxhkd; xrdb ~/.config/xresources/Xresources; kbdremap
 
 # remap keys (I have to do this after plugging/unplugging keyboards)
 super + Insert
