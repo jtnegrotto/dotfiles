@@ -34,6 +34,10 @@ super + Escape
 super + Insert
 	kbdremap
 
+# unicode character menu
+super + u
+	unimenu
+
 #
 # dwm hotkeys (using dwm-ipc)
 #

@@ -14,6 +14,7 @@ apply_options({
 	number = true,                         -- setting 'number' and 'relativenumber' at the same time...
 	relativenumber = true,                 -- ...enables hybrid line numbers
 	termguicolors = true,                  -- enable 24-bit rgb colors
-	colorcolumn = "80,100,120"             -- Highlight particular column numbers
+	colorcolumn = "80,100,120",            -- Highlight particular column numbers
+	foldenable = false,                    -- Disable automatic code folding
 })
 

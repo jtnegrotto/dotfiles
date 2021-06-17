@@ -1,5 +1,5 @@
 #!/bin/sh
 # grab urls from terminal using externalpipe
 regex='(((http|https|ftp|gopher)|mailto)[.:][^ >"\t]*|www\.[-a-z0-9.]+)[^ .,;\t>">\):]'
-url=$(grep -Po "$regex" | dmenu -p "Copy URL:" -w "$WINDOWID") || exit
+url=$(grep -Po "$regex" | dmenu -l 20 -p "Copy URL:" -w "$WINDOWID") || exit
 echo "$url" | xclip -sel clip

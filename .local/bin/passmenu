@@ -1,2 +1,2 @@
 #!/bin/sh
-find ~/.local/share/pass -type f ! -name .gpg-id | sed "s/\/home\/$(whoami)\/.local\/share\/pass\///" | sed "s/\.gpg//" | dmenu $@ | xargs pass -c
+find ~/.local/share/pass -type f ! -name .gpg-id | sed "s/\/home\/$(whoami)\/.local\/share\/pass\///" | sed "s/\.gpg//" | dmenu -i -l 20 $@ | xargs pass -c
