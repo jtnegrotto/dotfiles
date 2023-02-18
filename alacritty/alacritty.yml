@@ -1,0 +1,24 @@
+font:
+  size: 12
+
+  normal:
+    family: Source Code Pro
+    style: Medium
+
+  bold:
+    family: Source Code Pro
+    style: Semibold
+
+  italic:
+    family: Source Code Pro
+    style: Italic
+
+  bold_italic:
+    family: Source Code Pro
+    style: Bold Italic
+
+import:
+  - ~/.config/alacritty/tempus-themes-alacritty/tempus_spring.yml
+
+key_bindings:
+  - { key: N, mods: Shift|Control, action: SpawnNewInstance }

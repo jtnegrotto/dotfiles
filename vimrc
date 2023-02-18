@@ -1,0 +1,143 @@
+" disable vi compatibility
+set nocompatible
+
+" disable filetype detection before loading plugins
+
+call plug#begin()
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
+
+  Plug 'mileszs/ack.vim'
+
+  Plug 'https://gitlab.com/protesilaos/tempus-themes-vim.git'
+
+  Plug 'preservim/nerdtree'
+
+  " Completion
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+  " JavaScript
+  Plug 'pangloss/vim-javascript'
+  Plug 'prettier/vim-prettier', {'do': 'npm install'}
+  Plug 'evanleck/vim-svelte'
+  Plug 'codechips/coc-svelte', {'do': 'npm install'}
+call plug#end()
+
+" enable filetype detection, plugins, and indent files
+filetype plugin indent on
+
+" enable syntax highlighting
+syntax on
+
+" set leader key to space bar
+let mapleader = " "
+
+" disable modelines for security
+set modelines=0
+
+" display hybrid line numbers (absolute for current line, relative for others)
+set number relativenumber
+
+" display position information
+set ruler
+
+" blink cursor instead of beeping
+set visualbell
+
+" set vim character encoding
+set encoding=utf-8
+
+" whitespace
+set nowrap " disable word wrap by default
+set textwidth=79
+set formatoptions=tcqrn1
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set noshiftround
+
+" ensures three lines of context area available around the current line
+set scrolloff=3
+" allow backspacing over autoindentation, line breaks, and line beginnings
+set backspace=indent,eol,start
+" add angle brackets to matched brackets
+set matchpairs+=<:>
+runtime! macros/matchit.vim
+
+" navigate up/down visible lines when soft-wrapped instead of real lines
+nnoremap j gj
+nnoremap k gk
+
+" allow hidden buffers
+set hidden
+
+" smoother redrawing for fast terminal connections
+set ttyfast
+
+" always display status line on the last window
+set laststatus=2
+
+" display mode indicators in the status line
+set showmode
+
+" display command in the status line
+set showcmd
+
+" search
+nnoremap / /\v
+vnoremap / /\v
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set showmatch
+map <leader>c :let @/=''<cr> " clear search
+
+" project search and navigation
+map <leader>f :Files<cr>
+map <leader>s :Rg<cr>
+map <leader>\ :NERDTreeToggle<cr>
+" use ripgrep with ack.vim
+let g:ackprg = 'rg --vimgrep --smart-case'
+" auto-close quickfix window after choosing a list item
+let g:ack_autoclose = 1
+" empty ack search will find the word at the cursor
+let g:ack_use_cword_for_empty_search = 1
+" don't jump to first match
+cnoreabbrev Ack Ack!
+map <leader>/ :Ack<space>
+nnoremap <silent> [q :cprevious<cr>
+nnoremap <silent> ]q :cnext<cr>
+
+" remap help key
+inoremap <f1> <esc>:set invfullscreen<cr>a
+nnoremap <f1> :set invfullscreen<cr>
+vnoremap <f1> :set invfullscreen<CR>
+
+" formatting
+map <leader>q gqip
+
+" visualize tabs and newlines
+set listchars=tab:▸\ ,eol:¬
+map <leader>l :set list!<cr>
+
+" fixes for alacritty
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+" color scheme
+set termguicolors
+colorscheme tempus_spring
+
+" GUI options
+if has("gui_running")
+  if has("gui_gtk2") || has("gui_gtk3")
+    set guifont=Source\ Code\ Pro\ 12
+    set guioptions-=m
+    set guioptions-=T
+    set guioptions-=r
+  endif
+endif
+
+" FZF configuration
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --no-ignore-vcs'
