@@ -13,14 +13,16 @@ call plug#begin()
 
   Plug 'preservim/nerdtree'
 
+  " Git integration
+  Plug 'tpope/vim-fugitive'
+  Plug 'airblade/vim-gitgutter'
+
   " Completion
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
   " JavaScript
   Plug 'pangloss/vim-javascript'
   Plug 'prettier/vim-prettier', {'do': 'npm install'}
-  Plug 'evanleck/vim-svelte'
-  Plug 'codechips/coc-svelte', {'do': 'npm install'}
 call plug#end()
 
 " enable filetype detection, plugins, and indent files
