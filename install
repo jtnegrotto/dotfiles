@@ -1,0 +1,10 @@
+#!/bin/bash
+
+config_home="${XDG_CONFIG_HOME:-$HOME/.config}"
+mkdir -p "$config_home"
+
+set -x
+ln -sf "$PWD/vimrc"     "$HOME/.vimrc"
+rm -rf "$config_home/alacritty"
+ln -sf "$PWD/alacritty" "$config_home/alacritty"
+ln -sf "$PWD/tmux.conf" "$HOME/.tmux.conf"
