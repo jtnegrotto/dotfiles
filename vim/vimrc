@@ -1,8 +1,6 @@
 " disable vi compatibility
 set nocompatible
 
-" disable filetype detection before loading plugins
-
 call plug#begin()
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
@@ -11,7 +9,15 @@ call plug#begin()
 
   Plug 'https://gitlab.com/protesilaos/tempus-themes-vim.git'
 
+  Plug 'itchyny/lightline.vim'
+
   Plug 'preservim/nerdtree'
+
+  " Snippets
+  Plug 'tomtom/tlib_vim'
+  Plug 'MarcWeber/vim-addon-mw-utils'
+  Plug 'garbas/vim-snipmate'
+  Plug 'honza/vim-snippets'
 
   " Git integration
   Plug 'tpope/vim-fugitive'
@@ -23,6 +29,10 @@ call plug#begin()
   " JavaScript
   Plug 'pangloss/vim-javascript'
   Plug 'prettier/vim-prettier', {'do': 'npm install'}
+
+  " Ruby
+  Plug 'tpope/vim-rake'
+  Plug 'tpope/vim-rails'
 call plug#end()
 
 " enable filetype detection, plugins, and indent files
@@ -127,6 +137,7 @@ map <leader>l :set list!<cr>
 " fixes for alacritty
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
 " color scheme
 set termguicolors
 colorscheme tempus_spring
@@ -141,5 +152,15 @@ if has("gui_running")
   endif
 endif
 
+" lightline
+let g:lightline = {
+      \ 'colorscheme': 'seoul256',
+      \ }
+
+" suppress snipMate parser deprecation message
+let g:snipMate = {
+      \ 'snippet_version' : 1
+      \ }
+
 " FZF configuration
-let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --no-ignore-vcs'
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
