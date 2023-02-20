@@ -25,3 +25,8 @@ PS1="%B$PROMPT_USER%F{blue}@%f$PROMPT_HOST%F{blue}:%f$PROMPT_PWD\$vcs_info_msg_0
 
 # custom functions
 fpath+=${ZDOTDIR:-~}/.zsh_functions
+
+# automatically start tmux
+if [ -z "$TMUX" ]; then
+  tmux
+fi
