@@ -1,0 +1,5 @@
+#!/bin/bash
+set -euo pipefail
+
+git subtree pull -P vim/vim-plug https://github.com/junegunn/vim-plug.git master --squash
+git subtree pull -P alacritty/tempus-themes-alacritty https://gitlab.com/protesilaos/tempus-themes-alacritty.git main --squash

@@ -1,0 +1,27 @@
+## completion
+autoload -Uz compinit && compinit
+_comp_options+=(globdots)
+
+## prompt
+autoload -Uz vcs_info
+# run vcs_info before displaying the prompt
+precmd() { vcs_info }
+# style the VCS info (%s = VCS system; %b = current branch)
+zstyle ':vcs_info:*' formats '%F{blue}[%f%s%F{blue}:%f%F{cyan}%b%f%F{blue}]%f'
+# allow substitution in the prompt
+setopt prompt_subst
+# function for abbreviated working directory
+pwd_abbrev() {
+  sed "s%$HOME%~%" <<< "$PWD" \
+    | awk -F/ '{i=1; while(i<NF){printf "%s/",substr($i,1,1); i++;}; printf "%s",$NF}'
+}
+# build the prompt
+# make username red if superuser, white otherwise
+PROMPT_USER="%(!.%F{red}.%F{white})%n%f"
+PROMPT_HOST="%F{white}%m%f"
+PROMPT_PWD="%F{green}\$(pwd_abbrev)%f"
+PROMPT_SUFFIX=" %F{blue}❱%f "
+PS1="%B$PROMPT_USER%F{blue}@%f$PROMPT_HOST%F{blue}:%f$PROMPT_PWD\$vcs_info_msg_0_$PROMPT_SUFFIX%b"
+
+# custom functions
+fpath+=${ZDOTDIR:-~}/.zsh_functions

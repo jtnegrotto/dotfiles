@@ -1,0 +1,22 @@
+# cargo
+if [ -d "$HOME/.cargo" ]; then
+  source "$HOME/.cargo/env"
+fi
+
+# rbenv
+if [ -d "$HOME/.rbenv" ]; then
+  export RBENV_ROOT="$HOME/.rbenv"
+  eval "$("$RBENV_ROOT"/bin/rbenv init - zsh)"
+fi
+
+# nvm
+if [ -d "$HOME/.nvm" ]; then
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+fi
+
+# custom user-local binaries and scripts
+if [ -d "$HOME/.local/bin" ]; then
+  export PATH="$HOME/.local/bin:$PATH"
+fi
