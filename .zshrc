@@ -1,5 +1,7 @@
-autoload -Uz add-zsh-hook vcs_info
+autoload -Uz add-zsh-hook vcs_info compinit
+compinit
 setopt promptsubst
+bindkey -e
 
 # Sets `prompt_workdir` to home-relative, abbreviated working directory
 # example: `/home/julien/Code/foo/bar` > `~/C/f/bar`
