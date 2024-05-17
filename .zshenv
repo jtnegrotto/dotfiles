@@ -4,3 +4,4 @@ path=(
   $HOME/.config/emacs/bin
   $path
 )
+export EDITOR=emacs
