@@ -1,7 +1,7 @@
 # List of apt packages that my setup depends on
 
 # To install them, run:
-# grep -vE '^#' ~/.local/share/packages.list | sudo apt install -y
+# grep -vE '^#' ~/.local/share/packages.list | xargs sudo apt install -y
 
 # rbenv / ruby-build
 autoconf
