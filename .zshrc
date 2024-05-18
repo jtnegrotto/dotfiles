@@ -33,3 +33,9 @@ export PROMPT='%B%F{cyan}%n%f%F{blue}@%f%F{cyan}%m%f%F{blue}:%f%F{green}${prompt
 alias g=git
 alias myip="curl http://ipecho.net/plain; echo"
 alias config="git --work-tree=$HOME --git-dir=$HOME/.cfg"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+eval "$($HOME/.rbenv/bin/rbenv init - zsh)"
