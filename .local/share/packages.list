@@ -1,0 +1,21 @@
+# List of apt packages that my setup depends on
+
+# To install them, run:
+# grep -vE '^#' ~/.local/share/packages.list | sudo apt install -y
+
+# rbenv / ruby-build
+autoconf
+patch
+build-essential
+rustc
+libssl-dev
+libyaml-dev
+libreadline6-dev
+zlib1g-dev
+libgmp-dev
+libncurses5-dev
+libffi-dev
+libgdbm6
+libgdbm-dev
+libdb-dev
+uuid-dev
