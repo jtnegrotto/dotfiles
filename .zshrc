@@ -3,6 +3,7 @@ compinit
 setopt promptsubst
 bindkey -e
 
+
 # Sets `prompt_workdir` to home-relative, abbreviated working directory
 # example: `/home/julien/Code/foo/bar` > `~/C/f/bar`
 set_prompt_workdir() {
@@ -34,8 +35,14 @@ alias g=git
 alias myip="curl http://ipecho.net/plain; echo"
 alias config="git --work-tree=$HOME --git-dir=$HOME/.cfg"
 
+
+# Initialize misc. utilities (version managers, etc.)
+
+eval "$($HOME/.rbenv/bin/rbenv init - zsh)"
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-eval "$($HOME/.rbenv/bin/rbenv init - zsh)"
+export FLYCTL_INSTALL="/home/julien/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
