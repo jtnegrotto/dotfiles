@@ -38,11 +38,21 @@ alias config="git --work-tree=$HOME --git-dir=$HOME/.cfg"
 
 # Initialize misc. utilities (version managers, etc.)
 
+# ruby version manager
 eval "$($HOME/.rbenv/bin/rbenv init - zsh)"
 
+# node version manager
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export FLYCTL_INSTALL="/home/julien/.fly"
+# bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+# fly.io command-line tools
+export FLYCTL_INSTALL="$HOME/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
